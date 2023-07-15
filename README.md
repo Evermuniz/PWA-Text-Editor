@@ -1,4 +1,4 @@
-# Progressive Web Application Text Editor
+# Progressive Web Application: Text Editor
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
@@ -14,7 +14,7 @@ I created a simple text editor that is also a PWA (Progressive Web Application).
 
 
 ## Usage
-Follow this [link]() to visit the application deployed on Heroku. As you enter your notes, they will automatically be saved as the application loses focus. You can close the window and when you return your notes will persist unless you clear the storages. Click 'Install' to download the PWA as an icon to your local computer. You can launch the application using this without visiting the link.   
+Follow this [link](https://pwa-jate-2023-7c576433adaf.herokuapp.com/) to visit the application deployed on Heroku. As you enter your notes, they will automatically be saved as the application loses focus. You can close the window and when you return your notes will persist unless you clear the storages. Click 'Install' to download the PWA as an icon to your local computer. You can launch the application using this without visiting the link.   
 
 ![application screenshot](./assets/screenshot.jpeg)
 
