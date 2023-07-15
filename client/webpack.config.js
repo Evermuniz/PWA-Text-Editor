@@ -1,7 +1,7 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
-const path = require('path');
-const { InjectManifest } = require('workbox-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WebpackPwaManifest = require("webpack-pwa-manifest");
+const path = require("path");
+const { InjectManifest } = require("workbox-webpack-plugin");
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
 // TODO: Add CSS loaders and babel to webpack.
@@ -11,7 +11,7 @@ module.exports = () => {
     mode: "development",
     entry: {
       main: "./src/js/index.js",
-      install: "./src/js/install.js",
+      install: "./src/js/install.js"
     },
     output: {
       filename: "[name].bundle.js",
@@ -22,6 +22,10 @@ module.exports = () => {
         template: "./index.html",
         title: "Progressive Web Application",
       }),
+      new InjectManifest({
+        swSrc: "./src-sw.js",
+        swDest: "src-sw.js",
+      }),
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
@@ -30,8 +34,8 @@ module.exports = () => {
         description: "A simple PWA",
         background_color: "#ffffff",
         theme_color: "#2196f3",
-        start_url: "/",
-        publicPath: "/",
+        start_url: "./",
+        publicPath: "./",
         icons: [
           {
             src: path.resolve("./src/images/logo.png"),
@@ -40,10 +44,6 @@ module.exports = () => {
           },
         ],
       }),
-      new InjectManifest({
-        swSrc: "./src-sw.js",
-        swDest: "src-sw.js",
-      }),
     ],
 
     module: {
@@ -51,6 +51,10 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /codemirror.*\.js$/,
+          use: ["babel-loader"],
         },
         {
           test: /\.m?js$/,
